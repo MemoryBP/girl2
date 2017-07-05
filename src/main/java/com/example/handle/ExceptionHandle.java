@@ -19,7 +19,7 @@ public class ExceptionHandle {
             GirlException girlException=(GirlException)e;
             return ResultUtils.error(girlException.getCode(),girlException.getMessage());
         }else {
-            return ResultUtils.error(-1,"未知错误1");
+            return ResultUtils.error(-1,"未知错误啊");
         }
 
     }
