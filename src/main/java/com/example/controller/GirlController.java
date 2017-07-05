@@ -39,7 +39,7 @@ public class GirlController {
 
     @PostMapping(value = "/girls/add")
     public Result<Girl> girlAdd2(@Valid Girl girl, BindingResult bindingResult){
-        Result result=new Result();
+        /*Result result=new Result();*/
         if (bindingResult.hasErrors()){
             return ResultUtils.error(1,bindingResult.getFieldError().getDefaultMessage());
         }
@@ -85,8 +85,8 @@ public class GirlController {
     }
 
     @GetMapping(value = "/girls/getAge/{id}")
-    public void getAge(@PathVariable("id") Integer id) throws Exception{
-        girlService.getAge(id);
+    public Result getAge(@PathVariable("id") Integer id) throws Exception{
+        return girlService.getAge(id);
     }
 
 }

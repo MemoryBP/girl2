@@ -2,7 +2,9 @@ package com.example.service;
 
 import com.example.execption.GirlException;
 import com.example.model.Girl;
+import com.example.model.Result;
 import com.example.reposlitory.GirlRepository;
+import com.example.utils.ResultUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -28,7 +30,7 @@ public class GirlService {
         girlRepository.save(girlB);
     }
 
-    public void getAge(Integer id) throws Exception{
+    public Result getAge(Integer id) throws Exception{
         Girl girl=girlRepository.findOne(id);
         Integer age=girl.getAge();
         if (age < 11){
@@ -40,7 +42,8 @@ public class GirlService {
         }
 
         if (age > 16){
-            //增加money
+            return ResultUtils.success(girl);
         }
+        return null;
     }
 }
