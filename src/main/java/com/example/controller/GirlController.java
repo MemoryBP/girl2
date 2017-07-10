@@ -15,6 +15,7 @@ import java.util.List;
 /**
  * Created by CGQ-PC on 2017/6/30.
  */
+@CrossOrigin(origins = "*", maxAge = 3600)
 @RestController
 public class GirlController {
     @Autowired
@@ -87,6 +88,12 @@ public class GirlController {
     @GetMapping(value = "/girls/getAge/{id}")
     public Result getAge(@PathVariable("id") Integer id) throws Exception{
         return girlService.getAge(id);
+    }
+
+    @PostMapping(value = "/girls/login")
+    public Girl getAge(@RequestParam("cupSize") String cupSize,
+                         @RequestParam("age") Integer age){
+        return girlRepository.findByCupSizeAndAge(cupSize,age).get(0);
     }
 
 }

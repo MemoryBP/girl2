@@ -9,5 +9,6 @@ import java.util.List;
  * Created by CGQ-PC on 2017/6/30.
  */
 public interface GirlRepository extends JpaRepository<Girl,Integer> {
-    public List<Girl> findByAge(Integer age);
+    List<Girl> findByAge(Integer age);
+    List<Girl> findByCupSizeAndAge(String cupsize,Integer age);
 }

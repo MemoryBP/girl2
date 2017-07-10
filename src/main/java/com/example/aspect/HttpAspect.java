@@ -35,6 +35,8 @@ public class HttpAspect {
         logger.info("IP={}",request.getRemoteAddr());
         //服务器LocalIP
         logger.info("LocalIP={}",request.getLocalAddr());
+        //服务器端口
+        logger.info("ServerPort={}",request.getServerPort());
         //客户端LocalHost
         logger.info("LocalHost={}",request.getRemoteHost());
         //ServletPath
